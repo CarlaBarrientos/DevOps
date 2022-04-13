@@ -1,0 +1,9 @@
+[hosts-group]
+server1 ansible_host=192.168.100.89
+#server2 ansible_host=192.168.100.90
+
+[hosts-group:vars]
+ansible_user=cbarrientos
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
