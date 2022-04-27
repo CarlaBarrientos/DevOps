@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  proxy:
+    image: nginx:1-alpine
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d/:ro
+      - ./proxy/:/usr/share/nginx/html/:ro
+    ports:
+      - "8080:80"
+    networks:
+      - internal-network
+  service1:
+    image: nginx:1-alpine
+    hostname: service1
+    volumes:
+      - ./service1/:/usr/share/nginx/html/:ro
+    networks:
+      - internal-network
+  service2:
+    image: nginx:1-alpine
+    hostname: service2
+    volumes:
+      - ./service2/:/usr/share/nginx/html/:ro
+    networks:
+      - internal-network
+networks:
+  internal-network:
